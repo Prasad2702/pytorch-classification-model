@@ -58,6 +58,10 @@ if uploaded_file is not None:
 
     # Transform and predict
     img = transform(image).unsqueeze(0)  # Add batch dimension
+
+    with st.spinner("Predicting..."):
+    # run model
+
     with torch.no_grad():
         output = model(img)
         prediction = (output > 0.5).float().item()
